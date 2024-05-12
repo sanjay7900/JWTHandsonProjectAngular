@@ -1,0 +1,45 @@
+<div class="container">
+	<form class="screen" [formGroup]="loginform" (ngSubmit)="loginClick()">
+		<div class="screen__content">
+			<div class="login">
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="text" class="login__input" formControlName="userId" placeholder="User name / Email">
+					@if(loginform.get('userId')?.hasError('required') && loginform.get('userId')?.touched){
+					<div class="form-error text-danger">
+						User Name is required
+					</div>
+					}
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input type="password" formControlName="password" class="login__input" placeholder="Password">
+
+					@if(loginform.get('password')?.hasError('required')&& loginform.get('password')?.touched){
+					<div>
+						password is required
+					</div>
+					}
+				</div>
+				<button class="button login__submit">
+					<span class="button__text">Log In Now</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>
+			</div>
+			<div class="social-login">
+				<h3>log in via</h3>
+				<div class="social-icons">
+					<a href="#" class="social-login__icon fab fa-instagram"></a>
+					<a href="#" class="social-login__icon fab fa-facebook"></a>
+					<a href="#" class="social-login__icon fab fa-twitter"></a>
+				</div>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>
+
+	</form>
